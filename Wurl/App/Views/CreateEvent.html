@@ -1,0 +1,59 @@
+﻿<script type="text/javascript">
+    var loaded = false;
+    var time = 5000;
+    $(function () {
+        $(window).load(function () {
+            loaded = true;
+        });
+        setTimeout(function () {
+            if (!loaded) {
+                window.location.reload();
+            }
+        }, time);
+    });
+</script>
+
+<section class="spotlight style3 left">
+    <span class="image fit main bottom"><img src="images/createeventbackground.jpg" /></span>
+    <div class="content">
+
+        <h2>Host an Event</h2>
+        <p>Plan a gathering, host a party, organize a speaking engagement. It's your Wurl!</p>
+
+        <div>
+            <input type="text" name="event" id="event" value="" placeholder="Event Name" ng-model="Title" />
+        </div>
+        <br />
+        <div class="select-wrapper">
+            <select ng-model="url" ng-options="image.title for image in Images" ng-change="change(url)">
+                <option value="">Type of event</option>
+            </select>
+        </div>
+        <br />
+        <div>
+            <input type="text" name="location" id="city" value="" placeholder="Location" ng-model="Location" />
+        </div>
+        <br />
+        <div>
+            <input type="text" name="city" id="city" value="" placeholder="City" ng-model="City" />
+        </div>
+        <br />
+        <div>
+            <input type="text" name="datetime" id="event" value="" placeholder="Date" ng-model="Date" />
+        </div>
+        <div>
+            <input type="text" name="datetime" id="event" value="" placeholder="Time (hh:mm am/pm)" ng-model="Time" />
+        </div>
+        <br />
+        <textarea rows="2" name="description" id="description" value="" placeholder="Description" ng-model="Description"></textarea>
+        <br />
+        <ul class="actions">
+            <li><input type="submit" value="Create" class="special" ng-click="addNewEvent()" /></li>
+            <li ng-show="wait">Adding new event...</li>
+            <li style="color: red" ng-show="pass">Could not be submitted at this time, please try again</li>
+        </ul>
+    </div>
+</section>
+
+
+<script src="js/init.js"></script>
